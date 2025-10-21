@@ -7,7 +7,7 @@ use \Bitrix\Main\Loader;
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if(!Loader::includeModule("main") || !Loader::includeModule("iblock")) {
-	die("Main or iblock module are not included.");
+	die();
 }
 
 $catalogElementIds = [];
@@ -27,7 +27,7 @@ $rsUsers = CUser::GetList(
 	"",
 	[
 		"ACTIVE" => "Y",
-		"UF_AUTHOR_STATUS" => 42
+		"UF_AUTHOR_STATUS" => UF_AUTHOR_STATUS
 	]
 );
 
@@ -43,7 +43,7 @@ if (count($publishedUserIds) > 0) {
 		[
 			"PROPERTY_AUTHOR" => $publishedUserIds,
 			"PROPERTY_PRODUCT.ID" => $catalogElementIds,
-			"IBLOCK_CODE" => "reviews",
+			"IBLOCK_ID" => REVIEWS_IBLOCK_ID,
 			"ACTIVE" => "Y",
 		],
 		false,

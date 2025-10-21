@@ -9,4 +9,6 @@ $MESS["CATALOG_QUANTITY_FROM"] = "#FROM# and more";
 $MESS["CATALOG_QUANTITY_TO"] = "up to #TO#";
 $MESS["CT_BCS_QUANTITY"] = "Quantity";
 $MESS["CATALOG_ELEMENT_DELETE_CONFIRM"] = "Are you sure you want to delete this \"#ELEMENT#\"?";
+
+$MESS['EX2_TYPE4_CATALOG_SECTION_REVIEWS'] = 'Reviews';
 ?>
