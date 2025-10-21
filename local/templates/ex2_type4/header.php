@@ -141,9 +141,10 @@ IncludeTemplateLangFile(__FILE__);
 					</div>
 				</div>
 
+				<?$APPLICATION->ShowProperty("ex2_meta_reviews_name");?>
+						
 				<div class="content-block">
 					<div class="content-block-inner">
-
 						<?
 						$APPLICATION->IncludeComponent("bitrix:search.form", "flat", array(
 							"PAGE" => "#SITE_DIR#search/",

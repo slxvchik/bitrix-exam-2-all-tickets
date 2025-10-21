@@ -46,7 +46,18 @@ foreach($arResult["ITEMS"] as $cell=>$arElement):
 	<div class="catalog-item-desc<?=$width < 300 ? '-float' : ''?>">
 		<?=$arElement["PREVIEW_TEXT"]?>
 	</div>
-
+<?
+	if (isset($arResult["EXTRA"]["REVIEWS"][$arElement["ID"]])):
+?>
+	<div>Рецензии:</div>
+<?
+		foreach($arResult["EXTRA"]["REVIEWS"][$arElement["ID"]] as $reviewName):
+?>
+	<div><?=$reviewName;?></div>
+<?
+		endforeach;
+	endif;
+?>
 <?
 	foreach($arElement["PRICES"] as $code=>$arPrice):
 		if($arPrice["CAN_ACCESS"]):
