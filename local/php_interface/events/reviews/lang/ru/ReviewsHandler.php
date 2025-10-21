@@ -1,0 +1,3 @@
+<?
+$MESS["REVIEWS_HANDLER_SHORT_PREVIEW_TEXT_ERROR"] = "Текст анонса слишком короткий: #PREVIEW_TEXT_LENGTH#";
+$MESS["REVIEWS_HANDLER_SHORT_AUTHOR_CHANGED"] = "В рецензии #REVIEW_ID# изменился автор с #OLD_AUTHOR_ID# на #NEW_AUTHOR_ID#";

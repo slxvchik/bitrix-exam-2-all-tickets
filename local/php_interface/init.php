@@ -1,0 +1,16 @@
+<?php 
+
+use \Bitrix\Main\Loader;
+
+if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+
+Loader::registerAutoLoadClasses(
+    null,
+    [
+        "Events\\Reviews\\ReviewsHandler" => "/local/php_interface/events/reviews/ReviewsHandler.php"
+    ]
+);
+
+AddEventHandler("iblock", "OnBeforeIBlockElementAdd", ["Events\\Reviews\\ReviewsHandler", "onBeforeReviewAddHandler"]);
+AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", ["Events\\Reviews\\ReviewsHandler", "onBeforeReviewUpdateHandler"]);
+AddEventHandler("iblock", "OnAfterIBlockElementUpdate", ["Events\\Reviews\\ReviewsHandler", "onAfterReviewUpdateHandler"]);
