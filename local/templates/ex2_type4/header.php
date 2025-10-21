@@ -17,6 +17,8 @@ IncludeTemplateLangFile(__FILE__);
 	use Bitrix\Main\Page\Asset;
 	Asset::getInstance()->addCss (SITE_TEMPLATE_PATH . "/ex2/style.css");
 	?>
+
+	<?$APPLICATION->ShowMeta("ex2_meta");?>
 	<!-- / -->
 
 	<!--[if lte IE 6]>
