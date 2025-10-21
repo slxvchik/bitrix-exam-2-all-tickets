@@ -72,7 +72,7 @@ if ($reviewsCount > 0 && is_array($arResult["EXTRA"]["REVIEWS"])) {
 	$reviewTemplate = '<div id="filial-special" class="information-block">
 					<div class="top"></div>
 					<div class="information-block-inner">
-						<h3>Дополнительно</h3>
+						<h3>'.GetMessage("EX2_TYPE4_CATALOG_SECTION_H3").'</h3>
 						<div class="special-product">
 							<div class="special-product-title">
 								'.$firstReviewName.'
