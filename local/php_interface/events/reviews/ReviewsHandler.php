@@ -4,8 +4,13 @@ namespace Events\Reviews;
 
 use \CIBlockElement;
 use \CEventLog;
+use \Bitrix\Main\Loader;
 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+
+if(!Loader::includeModule("main") || !Loader::includeModule("iblock")) {
+    die("Main or iblock module are not included.");
+}
 
 class ReviewsHandler
 {
