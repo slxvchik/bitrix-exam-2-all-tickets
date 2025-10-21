@@ -49,7 +49,7 @@ foreach($arResult["ITEMS"] as $cell=>$arElement):
 <?
 	if (isset($arResult["EXTRA"]["REVIEWS"][$arElement["ID"]])):
 ?>
-	<div>Рецензии:</div>
+	<div><?=GetMessage("EX2_TYPE4_CATALOG_SECTION_REVIEWS");?>:</div>
 <?
 		foreach($arResult["EXTRA"]["REVIEWS"][$arElement["ID"]] as $reviewName):
 ?>
