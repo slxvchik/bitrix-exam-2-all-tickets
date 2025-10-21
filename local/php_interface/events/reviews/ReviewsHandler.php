@@ -9,17 +9,16 @@ use \Bitrix\Main\Loader;
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if(!Loader::includeModule("main") || !Loader::includeModule("iblock")) {
-    die("Main or iblock module are not included.");
+    die();
 }
 
 class ReviewsHandler
 {
-    private static $IBLOCKID = 7;
     private static $oldAuthorId;
 
     public static function onBeforeReviewAddHandler(&$arFields)
     {
-        if ($arFields["IBLOCK_ID"] == self::$IBLOCKID)
+        if ($arFields["IBLOCK_ID"] == REVIEWS_IBLOCK_ID)
         {
             $arFields["PREVIEW_TEXT"] = str_replace("#del#", "", $arFields["PREVIEW_TEXT"]);
             return self::checkLengthPreviewText($arFields["PREVIEW_TEXT"]);
@@ -28,9 +27,9 @@ class ReviewsHandler
     
     public static function onBeforeReviewUpdateHandler(&$arFields)
     {
-        if ($arFields["IBLOCK_ID"] == self::$IBLOCKID)
+        if ($arFields["IBLOCK_ID"] == REVIEWS_IBLOCK_ID)
         {
-            $rsOldAuthorId = CIBlockElement::GetProperty(self::$IBLOCKID, $arFields["ID"], [], "AUTHOR")->GetNext();
+            $rsOldAuthorId = CIBlockElement::GetProperty(REVIEWS_IBLOCK_ID, $arFields["ID"], [], "AUTHOR")->GetNext();
             if (isset($rsOldAuthorId["VALUE"]))
             {
                 self::$oldAuthorId = $rsOldAuthorId["VALUE"];
@@ -42,9 +41,9 @@ class ReviewsHandler
 
     public static function onAfterReviewUpdateHandler(&$arFields)
     {
-        if ($arFields["IBLOCK_ID"] == self::$IBLOCKID && !isset($arFields["RESULT_MESSAGE"]))
+        if ($arFields["IBLOCK_ID"] == REVIEWS_IBLOCK_ID && !isset($arFields["RESULT_MESSAGE"]))
         {
-            $rsNewAuthorId = CIBlockElement::GetProperty(self::$IBLOCKID, $arFields["ID"], [], "AUTHOR")->GetNext();
+            $rsNewAuthorId = CIBlockElement::GetProperty(REVIEWS_IBLOCK_ID, $arFields["ID"], [], "AUTHOR")->GetNext();
             if (isset($rsNewAuthorId["VALUE"]))
             {
                 $newAuthorId = $rsNewAuthorId["VALUE"];

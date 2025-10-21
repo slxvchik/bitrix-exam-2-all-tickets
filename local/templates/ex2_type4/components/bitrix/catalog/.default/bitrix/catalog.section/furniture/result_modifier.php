@@ -7,7 +7,7 @@ use \Bitrix\Main\Loader;
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if(!Loader::includeModule("main") || !Loader::includeModule("iblock")) {
-	die("Main or iblock module are not included.");
+	die();
 }
 
 $catalogElementIds = [];
@@ -27,7 +27,7 @@ $rsUsers = CUser::GetList(
 	"",
 	[
 		"ACTIVE" => "Y",
-		"UF_AUTHOR_STATUS" => 42
+		"UF_AUTHOR_STATUS" => UF_AUTHOR_STATUS
 	]
 );
 
@@ -43,7 +43,7 @@ if (count($publishedUserIds) > 0) {
 		[
 			"PROPERTY_AUTHOR" => $publishedUserIds,
 			"PROPERTY_PRODUCT.ID" => $catalogElementIds,
-			"IBLOCK_CODE" => "reviews",
+			"IBLOCK_ID" => REVIEWS_IBLOCK_ID,
 			"ACTIVE" => "Y",
 		],
 		false,
@@ -72,7 +72,7 @@ if ($reviewsCount > 0 && is_array($arResult["EXTRA"]["REVIEWS"])) {
 	$reviewTemplate = '<div id="filial-special" class="information-block">
 					<div class="top"></div>
 					<div class="information-block-inner">
-						<h3>Дополнительно</h3>
+						<h3>'.GetMessage("EX2_TYPE4_CATALOG_SECTION_H3").'</h3>
 						<div class="special-product">
 							<div class="special-product-title">
 								'.$firstReviewName.'
