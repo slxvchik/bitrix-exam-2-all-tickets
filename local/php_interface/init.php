@@ -11,7 +11,8 @@ Loader::registerAutoLoadClasses(
     [
         "Events\\Reviews\\ReviewsHandler" => "/local/php_interface/events/reviews/ReviewsHandler.php",
         "Events\\Users\\UsersHandler" => "/local/php_interface/events/users/UsersHandler.php",
-        "Agents\\Reviews\\ReviewsAgent" => "/local/php_interface/agents/reviews/ReviewsAgent.php"
+        "Agents\\Reviews\\ReviewsAgent" => "/local/php_interface/agents/reviews/ReviewsAgent.php",
+        "Events\\Mail\\MailHandler" => "/local/php_interface/events/mail/MailHandler.php"
     ]
 );
 
@@ -21,3 +22,5 @@ AddEventHandler("iblock", "OnAfterIBlockElementUpdate", ["Events\\Reviews\\Revie
 
 AddEventHandler("main", "OnBeforeUserUpdate", ["Events\\Users\\UsersHandler", "onBeforeUserUpdateHandler"]);
 AddEventHandler("main", "OnAfterUserUpdate", ["Events\\Users\\UsersHandler", "onAfterUserUpdateHandler"]);
+
+AddEventHandler('main', 'OnBeforeEventSend', ["Events\\Mail\\MailHandler", "onBeforeUserInfoSentHandler"]);
