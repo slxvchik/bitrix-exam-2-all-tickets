@@ -10,7 +10,8 @@ Loader::registerAutoLoadClasses(
     null,
     [
         "Events\\Reviews\\ReviewsHandler" => "/local/php_interface/events/reviews/ReviewsHandler.php",
-        "Events\\Users\\UsersHandler" => "/local/php_interface/events/users/UsersHandler.php"
+        "Events\\Users\\UsersHandler" => "/local/php_interface/events/users/UsersHandler.php",
+        "Agents\\Reviews\\ReviewsAgent" => "/local/php_interface/agents/reviews/ReviewsAgent.php"
     ]
 );
 
