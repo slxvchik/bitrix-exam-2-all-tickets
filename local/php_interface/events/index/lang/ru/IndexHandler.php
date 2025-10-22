@@ -1,0 +1,2 @@
+<?php
+$MESS["REVIEWS_INDEX_HANDLER_TITLE"] = "Класс: #REVIEW_NAME#";

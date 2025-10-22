@@ -12,7 +12,8 @@ Loader::registerAutoLoadClasses(
         "Events\\Reviews\\ReviewsHandler" => "/local/php_interface/events/reviews/ReviewsHandler.php",
         "Events\\Users\\UsersHandler" => "/local/php_interface/events/users/UsersHandler.php",
         "Agents\\Reviews\\ReviewsAgent" => "/local/php_interface/agents/reviews/ReviewsAgent.php",
-        "Events\\Mail\\MailHandler" => "/local/php_interface/events/mail/MailHandler.php"
+        "Events\\Mail\\MailHandler" => "/local/php_interface/events/mail/MailHandler.php",
+        "Events\\Index\\IndexHandler" => "/local/php_interface/events/index/IndexHandler.php"
     ]
 );
 
@@ -24,3 +25,6 @@ AddEventHandler("main", "OnBeforeUserUpdate", ["Events\\Users\\UsersHandler", "o
 AddEventHandler("main", "OnAfterUserUpdate", ["Events\\Users\\UsersHandler", "onAfterUserUpdateHandler"]);
 
 AddEventHandler('main', 'OnBeforeEventSend', ["Events\\Mail\\MailHandler", "onBeforeUserInfoSentHandler"]);
+
+AddEventHandler('search', 'BeforeIndex', ["Events\\Index\\IndexHandler", "onBeforeReviewsIndexHandler"]);
+
