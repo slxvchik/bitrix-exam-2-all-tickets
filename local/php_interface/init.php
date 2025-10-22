@@ -5,6 +5,7 @@ use \Bitrix\Main\Loader;
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 include_once __DIR__."/constants.php";
+
 Loader::registerAutoLoadClasses(
     null,
     [
@@ -17,5 +18,5 @@ AddEventHandler("iblock", "OnBeforeIBlockElementAdd", ["Events\\Reviews\\Reviews
 AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", ["Events\\Reviews\\ReviewsHandler", "onBeforeReviewUpdateHandler"]);
 AddEventHandler("iblock", "OnAfterIBlockElementUpdate", ["Events\\Reviews\\ReviewsHandler", "onAfterReviewUpdateHandler"]);
 
-AddEventHandler("main", "OnAfterUserUpdate", ["Events\\Users\\UsersHandler", "onBeforeUserUpdateHandler"]);
+AddEventHandler("main", "OnBeforeUserUpdate", ["Events\\Users\\UsersHandler", "onBeforeUserUpdateHandler"]);
 AddEventHandler("main", "OnAfterUserUpdate", ["Events\\Users\\UsersHandler", "onAfterUserUpdateHandler"]);
